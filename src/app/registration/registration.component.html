@@ -1,0 +1,38 @@
+<div class="container">
+<br>
+<br>
+  <h1>Bootcamp Form</h1>
+  <div class="form-group row">
+    <form #formGroup="ngForm" (ngSubmit)="onSubmit(formGroup)">
+      <label> First name : </label>
+      <input type="text" name="firstname" ngModel>
+      <br>
+      <br>
+      <label> Last name :</label>
+      <input type="text" name="lastname" ngModel>
+      <br>
+      <br>
+      <label> Email :</label>
+      <input type="email" name="email" ngModel #email="ngModel">
+      <br>
+      <br>
+      <div>
+        <label> URL :</label>
+        <input name="url" id="url" maxlength="40" minlength="8" type="url" [(ngModel)]="url2" ngModel #url="ngModel"
+          required>
+        <div *ngIf="url.invalid">
+          <div *ngIf="(url.touched || formGroup.submitted)">URL is required.</div>
+        </div>
+        <div *ngIf="!valditeUrl(formGroup) && (url.touched || formGroup.submitted)">
+          <div>URL is invaled.</div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button class="btn btn-primary" type="submit">Submit </button>
+    </form>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+    <br>
+    <br>
+    <!-- <h1 app-display>Hi from Directive</h1> -->
+    <h3>List Of Users</h3>
+    <div *ngFor="let user of users; let i = index" class="box">
+        <a [routerLink]="i + ''">{{user.firstname + " " + user.lastname}}</a>
+    </div>
+</div>
